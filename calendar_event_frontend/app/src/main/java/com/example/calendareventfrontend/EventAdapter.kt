@@ -23,7 +23,10 @@ class EventAdapter(
         return EventViewHolder(binding)
     }
 
-    override fun getItemCount(): Int = events.size
+    override fun getItemCount(): Int {
+        android.util.Log.d("EventAdapter", "getItemCount: events.size=${events.size}")
+        return events.size
+    }
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = events[position]

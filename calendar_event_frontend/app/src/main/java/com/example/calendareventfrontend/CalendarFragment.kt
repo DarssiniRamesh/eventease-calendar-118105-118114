@@ -30,6 +30,12 @@ class CalendarFragment : Fragment() {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
         setupRecyclerView()
         setupToolbarTitle()
+
+        // DEBUG: Add log and temporary view highlighting for diagnostics
+        binding.recyclerView.setBackgroundColor(0x44FF0000) // translucent red overlay to see if RV is visible
+        android.util.Log.d("CalendarFragment", "onCreateView: RecyclerView visibility=" + binding.recyclerView.visibility + ", adapter=" + binding.recyclerView.adapter)
+        android.widget.Toast.makeText(requireContext(), "CalendarFragment onCreateView reached", android.widget.Toast.LENGTH_SHORT).show()
+
         return binding.root
     }
 
