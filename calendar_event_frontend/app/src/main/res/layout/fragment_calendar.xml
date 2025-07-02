@@ -7,6 +7,80 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!-- Static row for weekday names -->
+        <LinearLayout
+            android:id="@+id/weekdayHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:paddingBottom="4dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sun"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/mon"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tue"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/wed"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/thu"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/fri"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/sat"
+                android:gravity="center"
+                android:textColor="@color/secondary"
+                android:textStyle="bold"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"

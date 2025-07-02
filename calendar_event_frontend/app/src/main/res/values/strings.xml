@@ -19,4 +19,12 @@
     <string name="end_time">End Time</string>
     <string name="location">Location</string>
     <string name="reminder_minutes">Reminder (min)</string>
+
+    <string name="sun">Sun</string>
+    <string name="mon">Mon</string>
+    <string name="tue">Tue</string>
+    <string name="wed">Wed</string>
+    <string name="thu">Thu</string>
+    <string name="fri">Fri</string>
+    <string name="sat">Sat</string>
 </resources>
