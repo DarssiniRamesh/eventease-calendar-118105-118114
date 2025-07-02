@@ -28,6 +28,24 @@ class CalendarFragment : Fragment() {
     // PUBLIC_INTERFACE
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentCalendarBinding.inflate(inflater, container, false)
+
+        // --- BEGIN: Inject dummy data for diagnosis if event list is empty ---
+        val existingEvents = EventRepository.getAllEvents()
+        if (existingEvents.isEmpty()) {
+            // These events are for debug/demo purposes; in real use this should not happen.
+            EventRepository.addEvent(
+                com.example.calendareventfrontend.model.Event(
+                    title = "Sample Event",
+                    description = "This is a sample event.",
+                    startTime = System.currentTimeMillis(),
+                    endTime = System.currentTimeMillis() + 60 * 60 * 1000,
+                    reminderMinutes = 10,
+                    location = "Conference Room"
+                )
+            )
+        }
+        // --- END: Dummy data injection ---
+
         setupRecyclerView()
         setupToolbarTitle()
 
