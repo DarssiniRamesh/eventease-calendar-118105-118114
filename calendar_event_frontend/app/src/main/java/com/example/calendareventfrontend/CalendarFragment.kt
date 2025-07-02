@@ -45,7 +45,8 @@ class CalendarFragment : Fragment() {
         refreshEvents()
     }
 
-    private fun refreshEvents() {
+    // PUBLIC_INTERFACE
+    fun refreshEvents() {
         // For prototype, use all events. Filtering by visible range could be added.
         val events = EventRepository.getAllEvents()
         adapter.updateEvents(events)
@@ -62,7 +63,12 @@ class CalendarFragment : Fragment() {
 
     private fun onEventClicked(event: Event) {
         val dialog = EventDialogFragment.newInstance(event)
-        dialog.show(parentFragmentManager, "EventDialogFragment")
+        dialog.setEventChangedListener(object : EventDialogFragment.EventChangedListener {
+            override fun onEventChanged() {
+                refreshEvents()
+            }
+        })
+        dialog.show(childFragmentManager, "EventDialogFragment")
     }
 
     companion object {

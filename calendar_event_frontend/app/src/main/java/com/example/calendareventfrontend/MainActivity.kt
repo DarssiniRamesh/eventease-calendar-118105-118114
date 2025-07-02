@@ -35,8 +35,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         binding.fab.setOnClickListener {
+            val calendarFragment = supportFragmentManager.findFragmentById(R.id.content_frame)
             val dialog = EventDialogFragment.newInstance(null)
-            dialog.show(supportFragmentManager, "EventDialogFragment")
+            if (calendarFragment is CalendarFragment) {
+                dialog.setEventChangedListener(object : EventDialogFragment.EventChangedListener {
+                    override fun onEventChanged() {
+                        calendarFragment.refreshEvents()
+                    }
+                })
+                dialog.show(calendarFragment.childFragmentManager, "EventDialogFragment")
+            } else {
+                dialog.show(supportFragmentManager, "EventDialogFragment")
+            }
         }
     }
 

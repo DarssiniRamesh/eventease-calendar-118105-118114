@@ -18,6 +18,10 @@ import java.util.Locale
 
 // PUBLIC_INTERFACE
 class EventDialogFragment : DialogFragment() {
+    interface EventChangedListener {
+        fun onEventChanged()
+    }
+    private var eventChangedListener: EventChangedListener? = null
     private var event: Event? = null
     private var isEdit: Boolean = false
     private lateinit var binding: DialogEventBinding
@@ -54,6 +58,7 @@ class EventDialogFragment : DialogFragment() {
                     } else {
                         EventRepository.addEvent(newEvent)
                     }
+                    eventChangedListener?.onEventChanged()
                     dismiss()
                 }
             }
@@ -62,6 +67,7 @@ class EventDialogFragment : DialogFragment() {
                 if (isEdit) {
                     setNeutralButton(getString(R.string.delete)) { _, _ ->
                         event?.let { EventRepository.deleteEvent(it.id) }
+                        eventChangedListener?.onEventChanged()
                         dismiss()
                     }
                 }
@@ -151,5 +157,9 @@ class EventDialogFragment : DialogFragment() {
             }
             return fragment
         }
+    }
+    // PUBLIC_INTERFACE
+    fun setEventChangedListener(listener: EventChangedListener) {
+        eventChangedListener = listener
     }
 }
