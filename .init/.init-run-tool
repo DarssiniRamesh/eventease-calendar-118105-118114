@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew installDebug",
+    "working_directory": "/home/kavia/workspace/code-generation/eventease-calendar-118105-118114/calendar_event_frontend"
+}
