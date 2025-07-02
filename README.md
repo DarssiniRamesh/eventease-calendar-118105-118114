@@ -1,1 +1,3 @@
-# eventease-calendar-118105-118114
+# Project Repository
+
+This is the initial README file for the project.
